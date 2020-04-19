@@ -31,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  movieTitle: {
+    display: "-webkit-box",
+    "-webkit-line-clamp": 2,
+    "-webkit-box-orient": "vertical",
+    overflow: "hidden",
+    "text-overflow": "ellipsis",
+  },
   cardFooter: {
     display: "flex",
     flexDirection: "row",
@@ -66,7 +73,7 @@ function MovieCard({ title, image, id, favouriteMovieDetail }) {
       </CardActionArea>
       <div className={classes.cardFooter}>
         <CardContent>
-          <Typography variant="subtitle1">{title}</Typography>
+          <Typography variant="subtitle1" className={classes.movieTitle}>{title}</Typography>
         </CardContent>
         {favouriteMovieDetail && (
           <CardActions className={classes.cardActions}>
