@@ -54,6 +54,12 @@ function Dashboard() {
   const fetchingError = useSelector((state) => state.movies.fetchingError);
   const isLoading = useSelector((state) => state.movies.isLoading);
 
+  React.useEffect(() => {
+    if (!movies.length) {
+      dispatch(requestMovies("movie"));
+    }
+  }, [dispatch, movies]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(requestMovies(searchTerm));
